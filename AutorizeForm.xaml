@@ -1,0 +1,39 @@
+﻿<Window x:Class="DP.AutorizeForm"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:DP"
+        mc:Ignorable="d"
+        Title="Авторизация" Height="300" Width="500" WindowStartupLocation="CenterScreen" ResizeMode="NoResize">
+    <Window.Resources>
+        <Style x:Key="BlackAndWhite">
+            <Setter Property="Control.FontFamily" Value="Comic Sans MS" />
+            <Setter Property="Control.FontSize" Value="14" />
+            <Setter Property="Control.Height" Value="30" />
+        </Style>
+    </Window.Resources>
+    <Grid Background="#E4EDDB">
+        <Grid.RowDefinitions>
+            <RowDefinition/>    
+            <RowDefinition/>    
+            <RowDefinition/>
+            <RowDefinition Height="0.3*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="3*"/>
+            <ColumnDefinition Width="10*"/>
+            <ColumnDefinition Width="3*"/>
+        </Grid.ColumnDefinitions>
+        <Label Name="StartLabel" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3" Content="Помощник куратора" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="Black" FontFamily="Comic Sans MS" FontSize="40"/>
+        <StackPanel Grid.Row="1" Grid.Column="1" VerticalAlignment="Center" Margin="10 0">
+            <PasswordBox x:Name="PassTb"
+                        materialDesign:HintAssist.Hint="Пароль"
+                        materialDesign:TextFieldAssist.HasClearButton="True"                       
+                        Style="{StaticResource MaterialDesignOutlinedRevealPasswordBox}" Foreground="Black" BorderBrush="#8AAE92"/>
+        </StackPanel>
+        <Button Name="AutorizeBtn" Grid.Row="2" Grid.Column="1" Content="Авторизоваться" Background="#8AAE92" VerticalContentAlignment="Center" FontFamily="Comic Sans MS"  FontSize="20" Margin="10 0" Click="AutorizeBtn_Click" Style="{StaticResource MaterialDesignPaperDarkButton}"/>
+        <Button Name="ChangePass" Grid.Row="3" Grid.Column="1" Content="Сменить пароль" Background="#8AAE92" Opacity="0.7" VerticalContentAlignment="Center" FontFamily="Comic Sans MS"  FontSize="10" Margin="70 0" Height="20"  Style="{StaticResource MaterialDesignPaperDarkButton}" Click="ChangePass_Click"/>
+    </Grid>
+</Window>

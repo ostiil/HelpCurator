@@ -1,0 +1,97 @@
+﻿<Window x:Class="DP.Characteristika"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:DP"
+        mc:Ignorable="d"
+        Title="Характеристика" Height="550" Width="450" >
+    <Window.Resources>
+        <Style x:Key="Style" TargetType="{x:Type Button}" BasedOn="{StaticResource MaterialDesignPaperDarkButton}">
+            <Setter Property="Control.FontFamily" Value="Comic Sans MS" />
+            <Setter Property="Control.Background" Value="#8AAE92" />
+            <Setter Property="Control.Foreground" Value="Black" />
+            <Setter Property="Control.FontSize" Value="14" />
+            <Setter Property="Control.Height" Value="30"/>
+            <Setter Property="Control.Margin" Value="0 0"/>
+        </Style>
+    </Window.Resources>
+    <Grid ShowGridLines="False" Background="#E4EDDB">
+        <Grid.RowDefinitions>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="2*" ></ColumnDefinition>
+            <ColumnDefinition Width="1*" ></ColumnDefinition>
+            <ColumnDefinition Width="1*"/>
+        </Grid.ColumnDefinitions>
+        <DataGrid Name="Charact" Grid.RowSpan="4" Grid.ColumnSpan="3" Grid.Column="0" Grid.Row="0" 
+                              AutoGenerateColumns="False" >
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="№" Binding="{Binding Id_student}" Visibility="Collapsed"/>
+                <DataGridTextColumn Header="ФИО студента" Binding="{Binding Fio_student}"/>
+                <DataGridTextColumn Header="Специальность" Binding="{Binding Specialnost}" Visibility="Collapsed"/>
+                <DataGridTextColumn Header="День рождения" Binding="{Binding Birth, StringFormat=d}" Visibility="Collapsed"/>
+                <DataGridTextColumn Header="Адрес" Binding="{Binding Adress}" Visibility="Collapsed"/>
+                <DataGridTextColumn Header="Телефон" Binding="{Binding Phone}" Visibility="Collapsed"/>
+                <DataGridTextColumn Header="ФИО матери" Binding="{Binding Fio_mother}" Visibility="Collapsed"/>
+                <DataGridTextColumn Header="Телефон матери" Binding="{Binding Phone_mother}" Visibility="Collapsed"/>
+                <DataGridTextColumn Header="ФИО отца" Binding="{Binding Fio_father}" Visibility="Collapsed"/>
+                <DataGridTextColumn Header="Телефон отца" Binding="{Binding Phone_father}" Visibility="Collapsed"/>
+                <DataGridTextColumn Header="Льготы" Binding="{Binding Benefits}" Visibility="Collapsed"/>
+                <DataGridTextColumn Header="Приказ о зачислении" Binding="{Binding Order_of_enrollment}" Visibility="Collapsed"/>
+                <DataGridTextColumn Header="Дата приказа" Binding="{Binding Date_enrollmant, StringFormat=d}" Visibility="Collapsed"/>
+            </DataGrid.Columns>
+        </DataGrid>
+
+        <Label Name="Motivation" Content="Мотивация к учебе" FontSize="16" FontFamily="Comic Sans MS" Foreground="Black" Grid.Row="4" Grid.Column="0" VerticalAlignment="Center" />
+        <ComboBox Name="MotivationCB" Grid.Row="4" Grid.Column="1" VerticalAlignment="Center" Grid.ColumnSpan="2">
+            <ComboBoxItem Content="низкая"/>
+            <ComboBoxItem Content="средняя"/>
+            <ComboBoxItem Content="высокая"/>
+        </ComboBox>
+        <Label Name="Marks" Content="Успеваемость" Grid.Row="5" Grid.Column="0" VerticalAlignment="Center" FontSize="16" FontFamily="Comic Sans MS" Foreground="Black"  />
+        <ComboBox Name="MarksCB" Grid.Row="5" Grid.Column="1" VerticalAlignment="Center" Grid.ColumnSpan="2">
+            <ComboBoxItem Content="отлично"/>
+            <ComboBoxItem Content="хорошо"/>
+            <ComboBoxItem Content="хорошо и отлично"/>
+            <ComboBoxItem Content="удовлетворительно"/>
+            <ComboBoxItem Content="хорошо и удовлетворительно"/>
+        </ComboBox>
+        <Label Name="Penalty" Content="Дисциплинарные взыскания" Grid.Row="6" Grid.Column="0" VerticalAlignment="Center" FontSize="15" FontFamily="Comic Sans MS" Foreground="Black" />
+        <ComboBox Name="PenaltyCB" Grid.Row="6" Grid.Column="1" VerticalAlignment="Center" Grid.ColumnSpan="2">
+            <ComboBoxItem Content="имеет"/>
+            <ComboBoxItem Content="не имеет"/>
+        </ComboBox>
+        <Label Name="PE" Content="Вредные привычки" Grid.Row="7" Grid.Column="0" VerticalAlignment="Center" FontSize="16" FontFamily="Comic Sans MS" Foreground="Black"/>
+        <ComboBox Name="PECb" Grid.Row="7" Grid.Column="1" VerticalAlignment="Center" Grid.ColumnSpan="2">
+            <ComboBoxItem Content="в употреблении алкоголя, токсических, наркотических и психотропных веществ не замечен"/>
+            <ComboBoxItem Content="замечен в употреблению алкоголя, курит"/>
+            <ComboBoxItem Content="замечен в употреблению алкоголя, не курит"/>
+        </ComboBox>
+        <Label Name="Emotional" Content="Эмоциональное развитие" Grid.Row="8" Grid.Column="0" VerticalAlignment="Center" FontSize="16" FontFamily="Comic Sans MS" Foreground="Black"/>
+        <ComboBox Name="EmotionalCB" Grid.Row="8" Grid.Column="1" VerticalAlignment="Center" Grid.ColumnSpan="2">
+            <ComboBoxItem Content="эмоционально устойчивый, спокойный, сдержанный, коммуникабельный"/>
+            <ComboBoxItem Content="эмоционально неустойчивый, агрессивный, раздражительный, несдержанный, некоммуникабельный"/>
+        </ComboBox>
+        <Label Name="Appearance" Content="Внешний вид" Grid.Row="9" Grid.Column="0" VerticalAlignment="Center" FontSize="16" FontFamily="Comic Sans MS" Foreground="Black"/>
+        <ComboBox Name="AppearanceCB" Grid.Row="9" Grid.Column="1" VerticalAlignment="Center" Grid.ColumnSpan="2">
+            <ComboBoxItem Content="опрятный"/>
+            <ComboBoxItem Content="неопрятный"/>
+        </ComboBox>
+        <Button Name="OpenWord" Content="Создать характеристику" Grid.ColumnSpan="2" Grid.Row="11" Grid.Column="1" Click="OpenWord_Click" Margin="0,5,0,6"  Style="{StaticResource Style}" />
+    </Grid>
+</Window>
